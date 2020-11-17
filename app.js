@@ -1,8 +1,8 @@
 
-const Employee = require("./Employee");
-const Manager = require("./Manager");
-const Engineer = require("./Engineer");
-const Intern = require("./Intern");
+const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const fs = require('fs');
 
@@ -134,7 +134,7 @@ class App {
     renderHTML() {
         fs.readFile('template/main.html', 'utf8', (err, htmlString) => {
 
-            htmlString = htmlString.split("<script></script>").join(this.getScript());
+            htmlString = htmlString("<script></script>").join(this.getScript());
 
             fs.writeFile('output/index.html', htmlString, (err) => {
                 // throws an error, you could also catch it here
@@ -210,3 +210,4 @@ class App {
 }
 
 
+module.exports = App;

@@ -1,4 +1,4 @@
-const App = require("./lib/App");
+const App = require("./App");
 const inquirer = require("inquirer");
 
 // Initialize a new Game object
